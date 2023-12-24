@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 import Faq from "./Faq";
+import { useAuth } from "../../utils/auth.jsx";
 
 export const Hero = () => {
+  const { user, loginUser } = useAuth();
+  console.log(user, loginUser);
   const [MovieData, setMovieData] = useState([]);
   const [Faqs, setFaqs] = useState([]);
 

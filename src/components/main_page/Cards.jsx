@@ -5,7 +5,7 @@ const Cards = ({ movie, no }) => {
     <>
       <div
         className={`text-white bg-black w-full flex p-20 justify-center items-center ${
-          no % 2 == 0 ? "" : "flex-row-reverse"
+          no % 2 === 0 ? "" : "flex-row-reverse"
         } `}
       >
         <div className="left w-1/2">
