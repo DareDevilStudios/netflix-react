@@ -24,6 +24,9 @@ const Navbar = () => {
             <button className="border-2 border-red-500 hover:bg-red-500 duration-300 ease-in-out px-6 py-1 font-bold text-white rounded-lg ml-4">
               Sign In
             </button>
+            <button className="border-2 border-red-500 hover:bg-red-500 duration-300 ease-in-out px-6 py-1 font-bold text-white rounded-lg ml-4">
+              Sign Out
+            </button>
           </div>
         </div>
       </nav>
