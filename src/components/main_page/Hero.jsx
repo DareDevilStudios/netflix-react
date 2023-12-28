@@ -2,12 +2,17 @@ import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 import Faq from "./Faq";
 import { useAuth } from "../../utils/auth.jsx";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment } from "../../Redux/slices/counterSlice";
+import { Tooltip } from "flowbite-react";
 
 export const Hero = () => {
   const { user, loginUser } = useAuth();
   console.log(user, loginUser);
   const [MovieData, setMovieData] = useState([]);
   const [Faqs, setFaqs] = useState([]);
+  const counter = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch("https://6587d02290fa4d3dabf92599.mockapi.io/movielist")
@@ -27,22 +32,30 @@ export const Hero = () => {
   return (
     <>
       <div className="flex flex-col justify-center items-center h-[42rem] text-white gap-4">
-        <h3 className="text-2xl">Welcome Back to Netflix</h3>
+        <h3 className="text-2xl">Welcome Back to Netflix {counter}.0</h3>
         <h1 className="text-6xl font-black text-center">
           Unlimited movies, TV shows and more
         </h1>
 
         <div class="mt-12 relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[8px] rounded-t-xl h-[172px] max-w-[301px] md:h-[314px] md:max-w-[512px]">
           <div className="rounded-xl overflow-hidden h-[140px] md:h-[350px]">
-            <video
-              autoPlay
-              loop
-              muted
-              className=" h-[140px] md:h-[300px] w-full rounded-xl"
-            >
-              <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <Tooltip content="Click here and see the magic">
+              <video
+                onClick={() => {
+                  dispatch(increment());
+                }}  
+                autoPlay
+                loop
+                muted
+                className=" h-[140px] md:h-[300px] w-full rounded-xl"
+              >
+                <source
+                  src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </Tooltip>
           </div>
         </div>
         <div class="relative mx-auto bg-gray-900 dark:bg-gray-700 rounded-b-xl rounded-t-sm h-[17px] max-w-[351px] md:h-[21px] md:max-w-[597px]">
