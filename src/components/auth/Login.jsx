@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useAuth } from "../../utils/auth.jsx";
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const { user, loginUser } = useAuth();

@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuth } from "../utils/auth.jsx";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { user, logoutUser } = useAuth();
