@@ -1,9 +1,16 @@
 import React, { useEffect, useRef } from "react";
 import { useAuth } from "../../utils/auth";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const { user, loginUser } = useAuth();
   const registerForm = useRef(null);
   const { registerUser } = useAuth();
+  const Navigate = useNavigate()
+
+  if(user){ 
+    return Navigate('/display')
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
