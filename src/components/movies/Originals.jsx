@@ -18,7 +18,7 @@ const Originals = ({title, fetchURL}) => {
     }, [fetchURL]);
 
 
-    return (
+    return (    
         <div className="overflow-x-hidden w-full">
             {title === "Top Rated" ? (
                 <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
